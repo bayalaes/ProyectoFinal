@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Productos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/formulario-producto']">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-searchbar (ionInput)="filtrarProductos($event)"></ion-searchbar>
+    <ion-item *ngFor="let producto of productosFiltrados">
+      <ion-label>
+        <h2>{{ producto.producto }}</h2>
+        <p>Unidad: {{ producto.unidad }}</p>
+        <div class="button-container">
+          <ion-button (click)="toggleDetails(producto.id!)">
+            {{ toggleStates[producto.id!] ? 'Ocultar' : 'Mostrar' }} Detalles
+          </ion-button>
+          <ion-button
+            fill="clear"
+            color="danger"
+            (click)="eliminarProducto(producto.id)"
+          >
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+          <ion-button
+            fill="clear"
+            color="primary"
+            [routerLink]="['/formulario-producto', producto.id]"
+          >
+            <ion-icon slot="icon-only" name="create"></ion-icon>
+          </ion-button>
+        </div>
+        <div *ngIf="toggleStates[producto.id!]" class="details-container">
+          <p>Presupuesto: {{ producto.presupuesto }}</p>
+          <p>Cantidad: {{ producto.cantidad }}</p>
+          <p>Valor Unitario: {{ producto.valorUnitario }}</p>
+          <p>Valor Total: {{ producto.valorTotal }}</p>
+          <p>Proveedor: {{ producto.proveedor }}</p>
+          <p>Fecha de Adquisición: {{ producto.fechaAdquisicion }}</p>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

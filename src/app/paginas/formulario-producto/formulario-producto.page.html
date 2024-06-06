@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ id ? 'Editar Producto' : 'Agregar Producto' }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Presupuesto</ion-label>
+      <ion-input formControlName="presupuesto" type="number"></ion-input>
+      <ion-note
+        *ngIf="productoForm.get('presupuesto').hasError('presupuestoInvalido') && (productoForm.get('presupuesto').dirty || productoForm.get('presupuesto').touched)"
+      >
+        El valor total excede el límite de presupuesto
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Unidad</ion-label>
+      <ion-input formControlName="unidad"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Producto</ion-label>
+      <ion-input formControlName="producto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cantidad</ion-label>
+      <ion-input formControlName="cantidad" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Valor Unitario</ion-label>
+      <ion-input formControlName="valorUnitario" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Valor Total</ion-label>
+      <ion-input formControlName="valorTotal" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha de Adquisición</ion-label>
+      <ion-input formControlName="fechaAdquisicion" type="date"></ion-input>
+      <ion-note
+        *ngIf="productoForm.get('fechaAdquisicion').hasError('fechaInvalida') && (productoForm.get('fechaAdquisicion').dirty || productoForm.get('fechaAdquisicion').touched)"
+      >
+        La fecha de adquisición no puede ser mayor a la fecha actual
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Proveedor</ion-label>
+      <ion-input formControlName="proveedor"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit">Guardar</ion-button>
+    <ion-item *ngIf="errorMessage">
+      <ion-label color="danger">{{ errorMessage }}</ion-label>
+    </ion-item>
+  </form>
+</ion-content>

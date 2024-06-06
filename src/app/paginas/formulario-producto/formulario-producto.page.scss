@@ -1,0 +1,51 @@
+ion-toolbar {
+    --background: #54a7ff; /* Color de fondo */
+    --color: #ffffff; /* Color del texto */
+  }
+  
+  ion-title {
+    font-size: 24px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  ion-content {
+    --background: #c6e1f7; /* Color de fondo */
+    --padding-top: 20px; /* Padding superior */
+    --padding-bottom: 20px; /* Padding inferior */
+  }
+  
+  ion-list {
+      background-color: #ffffff; /* Color de fondo del elemento */
+      padding: 16px; /* Agrega un padding a la lista */
+      border-radius: 15px; /* Bordes redondeados */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para la lista */
+      margin: 0 16px; /* Márgenes para que no toque los bordes del contenedor */
+    }
+  
+    ion-item {
+      --color: #353333; /* Color del texto */
+      --background: #ffffff; /* Color de fondo blanco para cada item */
+      margin-bottom: 10px; /* Margen inferior entre elementos */
+      border-radius: 15px; /* Bordes redondeados */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para los items */
+    }
+  
+    ion-item ion-label {
+      font-weight: bold; /* Texto en negrita */
+      color: #353333;
+    }
+    
+    ion-input {
+      --background: #ffffff; /* Fondo blanco para el input */
+      --color: #353333; /* Color del texto */
+      margin-top: 15px; /* Espacio superior entre el label y el input */
+    }
+    
+    
+    ion-button {
+      margin-top: 20px; /* Margen superior para los botones */
+    }
+    
+    ion-button:last-child {
+      margin-bottom: 20px; /* Margen inferior solo para el último botón */
+    }
